@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontostände aller Manager 👀</title>
+    <style>
+      .data-container {
+        display: grid;
+        grid-template-columns: min-content min-content min-content min-content;
+        grid-gap: 1rem;
+      }
+      .balance,
+      .maxbid,
+      .teamvalue {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kontostände aller Manager 👀</h1>
+    <p>
+      Hinweis: Tagesboni können nicht erfasst werden. Der berechnete Kontostand
+      weicht um den Betrag vom tätsächlichen Kontostand ab, den der Benutzer
+      durch Tagesboni während der gesamten Saison eingenommen hat.
+    </p>
+
+    <div class="data-container">
+      <span>Name</span>
+      <span>Kontostand</span>
+      <span>Teamwert</span>
+      <span>Maxbid</span>
+    </div>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>

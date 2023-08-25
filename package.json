@@ -1,16 +1,15 @@
 {
-	"name": "template-worker-typescript",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"deploy": "wrangler deploy src/index.ts",
-		"dev": "wrangler dev src/index.ts --local",
-		"start-stackblitz": "WRANGLER_SEND_METRICS=false wrangler dev src/index.ts --local",
-		"test": "vitest run"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20230518.0 ",
-		"vitest": "^0.31.0",
-		"wrangler": "^3.0.0"
-	}
+  "name": "kickbase-balances",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
 }
