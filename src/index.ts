@@ -16,14 +16,22 @@ const MONEY_FORMATTER = new Intl.NumberFormat("de-DE", {
 });
 
 async function fetchData(): Promise<UserBalanceData[]> {
-  const loginResult = await authService.login(
-    localStorage.getItem("KB_EMAIL") ?? "",
-    localStorage.getItem("KB_PASSWORD") ?? ""
-  );
+  const username =
+    localStorage.getItem("KB_EMAIL") ??
+    prompt("Kickbase E-Mail eingeben:") ??
+    "";
+  const password =
+    localStorage.getItem("KB_PASSWORD") ?? prompt("Kickbase Passwort:") ?? "";
+  const loginResult = await authService.login(username, password);
+
   if (loginResult === undefined) {
     alert("Login failed");
     return [];
   }
+
+  localStorage.setItem("KB_EMAIL", username);
+  localStorage.setItem("KB_PASSWORD", password);
+
   const leagueId = loginResult.leagues.find(
     (league) => league.amd === true
   )?.id;
@@ -56,7 +64,9 @@ function toHTML(data: UserBalanceData[]): string {
 }
 
 async function fetchAndrender() {
+  document.querySelector(".loading-bar")?.classList.add("loading");
   const data = await fetchData();
+  document.querySelector(".loading-bar")?.classList.remove("loading");
   const html = toHTML(data);
   document.querySelector(".data-container")!.innerHTML = html;
 }

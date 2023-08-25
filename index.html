@@ -15,9 +15,31 @@
       .teamvalue {
         text-align: right;
       }
+
+      @keyframes shine {
+        to {
+          background-position: 200%;
+        }
+      }
+
+      .loading-bar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 1rem;
+        background: linear-gradient(90deg, #0000 45%, red 50%, #0000 55%);
+        background-size: 200% auto;
+        animation: shine 1s ease-in-out infinite reverse;
+        visibility: hidden;
+      }
+
+      .loading {
+        visibility: visible;
+      }
     </style>
   </head>
   <body>
+    <div class="loading-bar"></div>
     <h1>Kontostände aller Manager 👀</h1>
     <p>
       Hinweis: Tagesboni können nicht erfasst werden. Der berechnete Kontostand
