@@ -3,7 +3,7 @@ export interface LoginResponse {
   token_expire: Date;
   username: string;
   password: string;
-  leagues: { id: string; amd: boolean }[];
+  leagues: { id: string; amd: boolean; name: string }[];
 }
 
 export interface UserData {
