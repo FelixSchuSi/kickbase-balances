@@ -2,10 +2,15 @@ import { LoginResponse, authService } from "./service/auth.service";
 import { leagueService } from "./service/league.service";
 import { calculateAccountBalance } from "./calculate-account-balance";
 
+export interface NumberRange {
+  min: number;
+  max: number;
+}
+
 export interface UserBalanceData {
   username: string;
-  currentBalance: number;
-  maxBid: number;
+  currentBalance: NumberRange;
+  maxBid: NumberRange;
   teamValue: number;
 }
 
@@ -38,9 +43,13 @@ function toHTML(data: UserBalanceData[]): string {
   const rows = data.map(
     (e) => `
       <span class="name">${e.username}:</span>
-      <span class="balance"> ${MONEY_FORMATTER.format(e.currentBalance)} </span>
+      <span class="balance"> ${MONEY_FORMATTER.format(
+        e.currentBalance.min
+      )} - ${MONEY_FORMATTER.format(e.currentBalance.max)} </span>
       <span class="teamvalue"> ${MONEY_FORMATTER.format(e.teamValue)} </span>
-      <span class="maxbid"> ${MONEY_FORMATTER.format(e.maxBid)} </span>
+      <span class="maxbid"> ${MONEY_FORMATTER.format(
+        e.maxBid.min
+      )} - ${MONEY_FORMATTER.format(e.maxBid.max)} </span>
     `
   );
   return header + rows.join("");
