@@ -27,9 +27,7 @@ async function fetchAndCalculateBalances(
   const leaguePlayersResult = await leagueService.getUsers(leagueId);
 
   return await Promise.all(
-    leaguePlayersResult.map((user) =>
-      calculateAccountBalance(user.userId, leagueId, user.userName)
-    )
+    leaguePlayersResult.map((user) => calculateAccountBalance(user, leagueId))
   );
 }
 
