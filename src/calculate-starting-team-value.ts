@@ -4,6 +4,7 @@ import { playerStatsService } from "./service/playerdata.service";
 /**
  * Calculates the market value of the original lineup as of 2023-08-07.
  * @param leagueId
+ * @param userId
  * @param startingTeam
  * @returns
  */
@@ -28,7 +29,7 @@ export async function calculateStartingTeamValue(
         .then(
           (marketValues) =>
             marketValues?.find((e) =>
-              e.day.toISOString().startsWith("2023-08-06")
+              e.day.toISOString().startsWith("2024-07-01")
             )?.value
         )
         .then((value) => value ?? 0)

@@ -18,7 +18,7 @@ export async function calculateAccountBalance(
   );
 
   const daysSinceLeagueStarted =
-    (new Date().getTime() - new Date("2023-08-07").getTime()) /
+    (new Date().getTime() - new Date("2024-07-01").getTime()) /
     (1000 * 60 * 60 * 24);
   const maxDiffCausedByDailyBonus = 100_000 * daysSinceLeagueStarted;
 

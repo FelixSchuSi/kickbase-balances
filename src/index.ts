@@ -38,12 +38,12 @@ function toHTML(data: UserBalanceData[]): string {
     <span>Teamwert</span>
     <span>Maxbid</span>
   `;
+
+  console.log('custom data', data)
   const rows = data.map(
     (e) => `
       <span class="name">${e.username}:</span>
-      <span class="balance"> ${MONEY_FORMATTER.format(
-        e.currentBalance.min
-      )} - ${MONEY_FORMATTER.format(e.currentBalance.max)} </span>
+      <span class="balance"> ${e.currentBalance.min} - ${e.currentBalance.max} </span>
       <span class="teamvalue"> ${MONEY_FORMATTER.format(e.teamValue)} </span>
       <span class="maxbid"> ${MONEY_FORMATTER.format(
         e.maxBid.min
